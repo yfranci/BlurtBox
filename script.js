@@ -13,8 +13,13 @@ function startTimer() {
         document.getElementById('topic').innerText = topic;
         document.getElementById('topicInput').style.display = 'none';
         document.getElementById('timer').style.display = 'block';
+
+        // Update the timer display before starting the interval
+        const formattedMinutes = String(minutes).padStart(2, '0');
+        const formattedSeconds = String(seconds).padStart(2, '0');
+        timerDisplay.innerText = `${formattedMinutes}:${formattedSeconds}`;
+
         timer = setInterval(updateTimer, 1000);
-        updateTimer(); // Update the timer immediately after starting
     }
 }
 
