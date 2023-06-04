@@ -2,17 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>BlurtBox</title>
+    <title>Countdown Timer</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="container">
         <h1 id="topic">Enter a Topic</h1>
+        <div id="access-code-container">
+            <select id="school-select">
+                <option value="" disabled selected>Select School</option>
+                <option value="preuss">The Preuss School at UC San Diego</option>
+                <option value="crawford">Crawford High School</option>
+            </select>
+            <input type="password" id="access-code-input" placeholder="Enter Access Code">
+            <button id="start-button">Start Timer</button>
+        </div>
         <div id="timer-container">
             <div id="timer">5:00</div>
         </div>
-        <input type="text" id="topic-input" placeholder="Enter a Topic">
-        <button id="reset-button">Reset</button>
     </div>
 
     <script src="script.js"></script>
