@@ -33,4 +33,17 @@ topicInput.addEventListener("keydown", function(event) {
     if (event.key === "Enter" && topicInput.value.trim() !== "") {
         startTimer();
     }
+    
+    const resetButton = document.getElementById("reset-button");
+
+resetButton.addEventListener("click", resetTimer);
+
+function resetTimer() {
+    clearInterval(countdownInterval);
+    time = 300;
+    timer.textContent = "5:00";
+    topicHeader.textContent = "Enter a Topic";
+    topicInput.style.display = "block";
+}
+
 });
