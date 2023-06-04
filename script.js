@@ -1,52 +1,29 @@
-// Timer variables
-let timer;
-let minutes = 5;
-let seconds = 0;
+let interval;
 
-// Timer display
-const timerDisplay = document.getElementById('timerDisplay');
-
-// Start the timer
-function startTimer() {
-    const topic = document.getElementById('topicInput').value;
-    if (topic.trim() !== '') {
-        document.getElementById('topic').innerText = topic;
-        document.getElementById('topicInput').style.display = 'none';
-        document.getElementById('timer').style.display = 'block';
-
-        // Update the timer display before starting the interval
-        const formattedMinutes = String(minutes).padStart(2, '0');
-        const formattedSeconds = String(seconds).padStart(2, '0');
-        timerDisplay.innerText = `${formattedMinutes}:${formattedSeconds}`;
-
-        timer = setInterval(updateTimer, 1000);
-    }
+function setTopic() {
+  let topic = document.getElementById("topicInput").value;
+  if (topic) {
+    document.getElementById("topicHeader").innerText = topic;
+    document.getElementById("topicBox").style.display = "none";
+    startTimer(5, document.getElementById("time"));
+  }
 }
 
-// Update the timer every second
-function updateTimer() {
-    if (minutes === 0 && seconds === 0) {
-        clearInterval(timer);
-        alert('Timer expired!');
-        return;
+function startTimer(duration, display) {
+  let timer = duration * 60, minutes, seconds;
+  interval = setInterval(function () {
+    minutes = parseInt(timer / 60, 10);
+    seconds = parseInt(timer % 60, 10);
+
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+    display.textContent = minutes + ":" + seconds;
+
+    if (--timer < 0) {
+      timer = duration;
+      alert("Time's up!");
+      clearInterval(interval);
     }
-
-    if (seconds === 0) {
-        minutes--;
-        seconds = 59;
-    } else {
-        seconds--;
-    }
-
-    const formattedMinutes = String(minutes).padStart(2, '0');
-    const formattedSeconds = String(seconds).padStart(2, '0');
-    timerDisplay.innerText = `${formattedMinutes}:${formattedSeconds}`;
-}
-
-// Reset the timer
-function resetTimer() {
-    clearInterval(timer);
-    minutes = 5;
-    seconds = 0;
-    timerDisplay.innerText = '05:00';
+  }, 1000);
 }
