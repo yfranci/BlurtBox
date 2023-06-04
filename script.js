@@ -1,18 +1,20 @@
-const topicInput = document.getElementById("topic-input");
 const topicHeader = document.getElementById("topic");
+const accessCodeContainer = document.getElementById("access-code-container");
+const schoolSelect = document.getElementById("school-select");
+const accessCodeInput = document.getElementById("access-code-input");
+const startButton = document.getElementById("start-button");
+const timerContainer = document.getElementById("timer-container");
 const timer = document.getElementById("timer");
 
 let time = 300; // 5 minutes in seconds
 let countdownInterval;
-let timerStarted = false;
 
 function startTimer() {
-    topicHeader.textContent = topicInput.value;
-    topicInput.style.display = "none";
-    timer.style.display = "block";
+    topicHeader.textContent = schoolSelect.options[schoolSelect.selectedIndex].text;
+    accessCodeContainer.style.display = "none";
+    timerContainer.style.display = "block";
 
     countdownInterval = setInterval(updateTimer, 1000);
-    timerStarted = true;
 }
 
 function updateTimer() {
@@ -26,41 +28,28 @@ function updateTimer() {
     if (time === 0) {
         clearInterval(countdownInterval);
         timer.textContent = "Time's up!";
-        showResetButton();
     }
 
     time--;
 }
 
-function resetTimer() {
-    clearInterval(countdownInterval);
-    time = 300;
-    timer.textContent = "5:00";
-    topicHeader.textContent = "Enter a Topic";
-    topicInput.style.display = "block";
-    hideResetButton();
-    timerStarted = false;
-}
+function validateAccessCode() {
+    const selectedSchool = schoolSelect.value;
+    const accessCode = accessCodeInput.value;
 
-function showResetButton() {
-    const resetButton = document.getElementById("reset-button");
-    if (resetButton) {
-        resetButton.style.display = "block";
-    } else {
-        const container = document.getElementById("container");
-        container.insertAdjacentHTML('beforeend', '<button id="reset-button" onclick="resetTimer()">Reset</button>');
+    let isValid = false;
+
+    if (selectedSchool === "preuss" && accessCode === "k98w4Vyd^") {
+        isValid = true;
+    } else if (selectedSchool === "crawford" && accessCode === "#89iM4OTm") {
+        isValid = true;
     }
-}
 
-function hideResetButton() {
-    const resetButton = document.getElementById("reset-button");
-    if (resetButton) {
-        resetButton.style.display = "none";
-    }
-}
-
-topicInput.addEventListener("keydown", function (event) {
-    if (event.key === "Enter" && topicInput.value.trim() !== "" && !timerStarted) {
+    if (isValid) {
         startTimer();
+    } else {
+        alert("Incorrect access code. Please try again.");
     }
-});
+}
+
+startButton.addEventListener("click", validateAccessCode);
