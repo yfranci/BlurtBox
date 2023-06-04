@@ -15,10 +15,11 @@ body {
 }
 
 #topic {
-    font-size: 24px;
-    color: #3D8BFF;
+    font-size: 36px;
+    color: white;
     margin-bottom: 20px;
 }
+
 
 #timer-container {
     background-color: rgba(255, 255, 255, 0.8);
