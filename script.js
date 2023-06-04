@@ -37,6 +37,7 @@ function updateTimer() {
     timerDisplay.innerText = `${formattedMinutes}:${formattedSeconds}`;
 }
 
+
 // Reset the timer
 function resetTimer() {
     clearInterval(timer);
