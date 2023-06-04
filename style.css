@@ -28,6 +28,7 @@ body {
 }
 
 #validate-button,
+#submit-button,
 #start-button,
 #reset-button {
     padding: 8px 16px;
@@ -38,6 +39,10 @@ body {
     border-radius: 5px;
     cursor: pointer;
     margin-bottom: 10px;
+}
+
+#submit-button {
+    margin-left: 10px;
 }
 
 #topic-container {
@@ -56,6 +61,13 @@ body {
     display: none;
 }
 
+#timer-box {
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
 #timer {
     font-size: 48px;
     color: #3D8BFF;
@@ -67,13 +79,6 @@ body {
     color: white;
 }
 
-#submit-button {
-    padding: 8px 16px;
-    font-size: 16px;
-    background-color: #3D8BFF;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-bottom: 10px;
-}
+#timer-buttons {
+    display: flex;
+    justify-content: center;
