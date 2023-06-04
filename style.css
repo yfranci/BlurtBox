@@ -21,25 +21,17 @@ body {
 }
 
 #access-code-container {
-    display: none;
-}
-
-#school-select {
-    font-size: 16px;
-    padding: 8px;
     margin-bottom: 10px;
 }
 
 #access-code-input {
-    display: block;
-    margin: 0 auto;
     padding: 10px;
     font-size: 16px;
     border: 2px solid #3D8BFF;
     border-radius: 5px;
 }
 
-#start-button {
+#validate-button {
     padding: 8px 16px;
     font-size: 16px;
     background-color: #3D8BFF;
@@ -60,4 +52,15 @@ body {
     font-size: 48px;
     color: #3D8BFF;
     margin-bottom: 10px;
+}
+
+#reset-button {
+    padding: 8px 16px;
+    font-size: 16px;
+    background-color: #3D8BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
 }
