@@ -1,7 +1,8 @@
 body {
-  background-image: 'BlurtBoxBckgrnd.png';
+  background-image: url('BlurtBoxBckgrnd.png');
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
 }
 
 .content {
