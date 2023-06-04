@@ -1,6 +1,7 @@
 const topicInput = document.getElementById("topic-input");
 const topicHeader = document.getElementById("topic");
 const timer = document.getElementById("timer");
+const resetButton = document.getElementById("reset-button");
 
 let time = 300; // 5 minutes in seconds
 let countdownInterval;
@@ -29,15 +30,6 @@ function updateTimer() {
     time--;
 }
 
-topicInput.addEventListener("keydown", function(event) {
-    if (event.key === "Enter" && topicInput.value.trim() !== "") {
-        startTimer();
-    }
-    
-    const resetButton = document.getElementById("reset-button");
-
-resetButton.addEventListener("click", resetTimer);
-
 function resetTimer() {
     clearInterval(countdownInterval);
     time = 300;
@@ -46,4 +38,10 @@ function resetTimer() {
     topicInput.style.display = "block";
 }
 
+topicInput.addEventListener("keydown", function(event) {
+    if (event.key === "Enter" && topicInput.value.trim() !== "") {
+        startTimer();
+    }
 });
+
+resetButton.addEventListener("click", resetTimer);
