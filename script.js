@@ -1,33 +1,36 @@
-window.onload = function () {
-  let interval;
+const topicInput = document.getElementById("topic-input");
+const topicHeader = document.getElementById("topic");
+const timer = document.getElementById("timer");
 
-  function setTopic() {
-    let topic = document.getElementById("topicInput").value;
-    if (topic) {
-      document.getElementById("topicHeader").innerText = topic;
-      document.getElementById("topicBox").style.display = "none";
-      startTimer(5, document.getElementById("time"));
+let time = 300; // 5 minutes in seconds
+let countdownInterval;
+
+function startTimer() {
+    topicHeader.textContent = topicInput.value;
+    topicInput.style.display = "none";
+    timer.style.display = "block";
+
+    countdownInterval = setInterval(updateTimer, 1000);
+}
+
+function updateTimer() {
+    const minutes = Math.floor(time / 60);
+    let seconds = time % 60;
+
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+    timer.textContent = minutes + ":" + seconds;
+
+    if (time === 0) {
+        clearInterval(countdownInterval);
+        timer.textContent = "Time's up!";
     }
-  }
 
-  function startTimer(duration, display) {
-    let timer = duration * 60, minutes, seconds;
-    interval = setInterval(function () {
-      minutes = parseInt(timer / 60, 10);
-      seconds = parseInt(timer % 60, 10);
+    time--;
+}
 
-      minutes = minutes < 10 ? "0" + minutes : minutes;
-      seconds = seconds < 10 ? "0" + seconds : seconds;
-
-      display.textContent = minutes + ":" + seconds;
-
-      if (--timer < 0) {
-        timer = duration * 60;
-        clearInterval(interval);
-        alert("Time's up!");
-      }
-    }, 1000);
-  }
-
-  document.getElementById("startButton").addEventListener("click", setTopic);
-};
+topicInput.addEventListener("keydown", function(event) {
+    if (event.key === "Enter" && topicInput.value.trim() !== "") {
+        startTimer();
+    }
+});
