@@ -4,6 +4,7 @@ const accessCodeInput = document.getElementById("access-code-input");
 const validateButton = document.getElementById("validate-button");
 const topicContainer = document.getElementById("topic-container");
 const topicInput = document.getElementById("topic-input");
+const submitButton = document.getElementById("submit-button");
 const timerContainer = document.getElementById("timer-container");
 const topicHeader = document.getElementById("topic-header");
 const timer = document.getElementById("timer");
@@ -33,8 +34,8 @@ function validateAccessCode() {
     }
 }
 
-function startTimer() {
-    const topic = topicInput.value;
+function submitTopic() {
+    const topic = topicInput.value.trim();
     if (topic === "") {
         alert("Please enter a topic.");
         return;
@@ -47,6 +48,10 @@ function startTimer() {
     resetButton.style.display = "block";
 
     countdownInterval = setInterval(updateTimer, 1000);
+}
+
+function startTimer() {
+    submitTopic();
 }
 
 function updateTimer() {
@@ -79,5 +84,6 @@ function resetTimer() {
 }
 
 validateButton.addEventListener("click", validateAccessCode);
+submitButton.addEventListener("click", submitTopic);
 startButton.addEventListener("click", startTimer);
 resetButton.addEventListener("click", resetTimer);
