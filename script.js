@@ -44,14 +44,12 @@ function submitTopic() {
     topicHeader.textContent = topic;
     topicContainer.style.display = "none";
     timerContainer.style.display = "block";
-    startButton.style.display = "none";
-    resetButton.style.display = "block";
-
-    countdownInterval = setInterval(updateTimer, 1000);
 }
 
 function startTimer() {
-    submitTopic();
+    countdownInterval = setInterval(updateTimer, 1000);
+    startButton.style.display = "none";
+    resetButton.style.display = "inline-block";
 }
 
 function updateTimer() {
@@ -74,12 +72,7 @@ function resetTimer() {
     clearInterval(countdownInterval);
     time = 300;
     timer.textContent = "5:00";
-    accessCodeInput.value = "";
-    topicInput.value = "";
-    topicHeader.textContent = "";
-    accessCodeContainer.style.display = "block";
-    topicContainer.style.display = "none";
-    timerContainer.style.display = "none";
+    startButton.style.display = "inline-block";
     resetButton.style.display = "none";
 }
 
