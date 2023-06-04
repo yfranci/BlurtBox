@@ -7,7 +7,6 @@
 </head>
 <body>
     <div id="container">
-        <h1 id="topic">Enter a Topic</h1>
         <div id="access-code-container">
             <select id="school-select">
                 <option value="" disabled selected>Select School</option>
@@ -17,11 +16,13 @@
             <input type="password" id="access-code-input" placeholder="Enter Access Code">
             <button id="validate-button">Validate Access</button>
         </div>
+        <div id="topic-container" style="display: none;">
+            <input type="text" id="topic-input" placeholder="Enter a Topic">
+        </div>
         <div id="timer-container" style="display: none;">
-            <h2 id="topic-input-label">Enter a Topic:</h2>
-            <input type="text" id="topic-input" placeholder="Topic">
-            <button id="start-button" style="display: none;">Start Timer</button>
+            <h1 id="topic-header"></h1>
             <div id="timer">5:00</div>
+            <button id="start-button">Start Timer</button>
             <button id="reset-button" style="display: none;">Reset Timer</button>
         </div>
     </div>
