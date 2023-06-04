@@ -14,12 +14,6 @@ body {
     text-align: center;
 }
 
-#topic {
-    font-size: 36px;
-    color: white;
-    margin-bottom: 20px;
-}
-
 #access-code-container {
     margin-bottom: 10px;
 }
@@ -46,11 +40,20 @@ body {
     margin-bottom: 10px;
 }
 
+#topic-container {
+    display: none;
+}
+
+#topic-input {
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #3D8BFF;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
 #timer-container {
     display: none;
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 20px;
-    border-radius: 10px;
 }
 
 #timer {
@@ -59,18 +62,7 @@ body {
     margin-bottom: 10px;
 }
 
-#topic-input-label {
-    display: none;
-    font-size: 18px;
-    color: #3D8BFF;
-    margin-bottom: 10px;
-}
-
-#topic-input {
-    display: none;
-    padding: 10px;
-    font-size: 16px;
-    border: 2px solid #3D8BFF;
-    border-radius: 5px;
-    margin-bottom: 10px;
+#topic-header {
+    font-size: 36px;
+    color: white;
 }
