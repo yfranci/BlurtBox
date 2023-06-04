@@ -1,20 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>BlurtBox</title>
-  <link rel="stylesheet" type="text/css" href="styles.css">
+    <meta charset="UTF-8">
+    <title>Countdown Timer</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="content">
-    <div id="topicBox" class="topicBox">
-      <input id="topicInput" type="text" placeholder="Enter Topic">
-      <button onclick="setTopic()">Start</button>
+    <div id="container">
+        <h1 id="topic">Enter a Topic</h1>
+        <div id="timer-container">
+            <div id="timer">5:00</div>
+        </div>
+        <input type="text" id="topic-input" placeholder="Enter a Topic">
     </div>
-    <h1 id="topicHeader"></h1>
-    <div class="countdown">
-      <p id="time">05:00</p>
-    </div>
-  </div>
-  <script src="script.js"></script>
+
+    <script src="script.js"></script>
 </body>
 </html>
