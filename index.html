@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Timer Page</title>
-    <script src="script.js"></script>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+  <title>BlurtBox</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-    <div id="header">
-        <h1 id="topic"></h1>
-        <input type="text" id="topicInput" placeholder="Enter a topic">
-        <button onclick="startTimer()">Start Timer</button>
+  <div class="content">
+    <div id="topicBox" class="topicBox">
+      <input id="topicInput" type="text" placeholder="Enter Topic">
+      <button onclick="setTopic()">Start</button>
     </div>
-    
-    <div id="timer">
-        <h2 id="timerDisplay">05:00</h2>
-        <button onclick="resetTimer()">Reset Timer</button>
+    <h1 id="topicHeader"></h1>
+    <div class="countdown">
+      <p id="time">05:00</p>
     </div>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
