@@ -14,6 +14,7 @@ function startTimer() {
         document.getElementById('topicInput').style.display = 'none';
         document.getElementById('timer').style.display = 'block';
         timer = setInterval(updateTimer, 1000);
+        updateTimer(); // Update the timer immediately after starting
     }
 }
 
@@ -36,7 +37,6 @@ function updateTimer() {
     const formattedSeconds = String(seconds).padStart(2, '0');
     timerDisplay.innerText = `${formattedMinutes}:${formattedSeconds}`;
 }
-
 
 // Reset the timer
 function resetTimer() {
