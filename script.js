@@ -3,7 +3,6 @@ const schoolSelect = document.getElementById("school-select");
 const accessCodeInput = document.getElementById("access-code-input");
 const validateButton = document.getElementById("validate-button");
 const topicContainer = document.getElementById("topic-container");
-const topicInput = document.getElementById("topic-input");
 const submitButton = document.getElementById("submit-button");
 const timerContainer = document.getElementById("timer-container");
 const topicHeader = document.getElementById("topic-header");
@@ -35,13 +34,16 @@ function validateAccessCode() {
 }
 
 function submitTopic() {
-    const topic = topicInput.value.trim();
+    const topic = mathField.latex(); // Get the LaTeX from the MathQuill field
     if (topic === "") {
         alert("Please enter a topic.");
         return;
     }
 
-    topicHeader.textContent = topic;
+    // Render the LaTeX in the topic header with MathJax
+    topicHeader.innerHTML = "\\(" + topic + "\\)";
+    MathJax.Hub.Queue(["Typeset",MathJax.Hub,topicHeader]);
+
     topicContainer.style.display = "none";
     timerContainer.style.display = "block";
 }
