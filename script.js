@@ -34,15 +34,14 @@ function validateAccessCode() {
 }
 
 function submitTopic() {
-    const topic = mathField.latex(); // Get the LaTeX from the MathQuill field
-    if (topic === "") {
+    const topic = mathField.text(); // Get the text from the MathQuill field
+    if (topic.trim() === "") {
         alert("Please enter a topic.");
         return;
     }
 
-    // Render the LaTeX in the topic header with MathJax
-    topicHeader.innerHTML = "\\(" + topic + "\\)";
-    MathJax.Hub.Queue(["Typeset",MathJax.Hub,topicHeader]);
+    // Render the topic text in the topic header
+    topicHeader.textContent = topic;
 
     topicContainer.style.display = "none";
     timerContainer.style.display = "block";
@@ -82,3 +81,14 @@ validateButton.addEventListener("click", validateAccessCode);
 submitButton.addEventListener("click", submitTopic);
 startButton.addEventListener("click", startTimer);
 resetButton.addEventListener("click", resetTimer);
+
+var mathFieldSpan = document.getElementById('math-field');
+var MQ = MathQuill.getInterface(2); // for backcompat
+var mathField = MQ.MathField(mathFieldSpan, {
+  spaceBehavesLikeTab: true, // configurable
+  handlers: {
+    edit: function() { // useful event handlers
+      mathField.focus();
+    }
+  }
+});
